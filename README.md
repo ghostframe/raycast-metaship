@@ -10,12 +10,8 @@ A raycast plugin to quickly start any Metabase tag you want, and connect it to a
 
 ## Usage
 
-First you need to configure:
-- A GitHub token for the plugin to pull MB tags
-- An enterprise token to use for your Metabases
-
 There are two commands:
-- Metabases: shows running Metabases (docker) and all Github tags you can check out (they refresh once per day). You can:
+- Metabases: shows running Metabases (docker) and all Dockerhub tags you can check out (they refresh once per day). You can:
   - Start an Enterprise Metabase, pointing to the selected database on the top-right
   - Start an OSS Metabase
   - On an active Metabase, add the selected DB to it
