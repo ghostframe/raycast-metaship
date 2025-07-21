@@ -1,0 +1,67 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "metaship",
+  "title": "Metaship",
+  "description": "Actions related to running Metabase versions and databases",
+  "icon": "metabase.ico",
+  "author": "marker",
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "run-metabase",
+      "title": "Metabases",
+      "description": "Run or open a metabase",
+      "mode": "view",
+      "preferences": [
+        {
+          "title": "Github Token",
+          "name": "githubToken",
+          "type": "password",
+          "required": true,
+          "description": "Github token for fetching tags. Create one from https://github.com/settings/personal-access-tokens"
+        }
+      ]
+    },
+    {
+      "name": "run-database",
+      "title": "Databases",
+      "description": "Run a database",
+      "mode": "view",
+      "icon": "database.svg"
+    }
+  ],
+  "preferences": [
+    {
+      "title": "Metabase Token",
+      "name": "metabaseToken",
+      "type": "password",
+      "required": true,
+      "description": "Metabase token for running Enterprise Edition"
+    }
+  ],
+  "dependencies": {
+    "@octokit/rest": "^22.0.0",
+    "@raycast/api": "^1.99.4",
+    "@raycast/utils": "^1.17.0",
+    "@types/dockerode": "^3.3.40",
+    "axios": "^1.9.0",
+    "find-free-ports": "^3.1.1",
+    "harbor-master": "^1.32.1"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^2.0.4",
+    "@types/node": "22.13.10",
+    "@types/react": "19.0.10",
+    "eslint": "^9.22.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2"
+  },
+  "scripts": {
+    "build": "ray build",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "prepublishOnly": "echo \"\\n\\nIt seems like you are trying to publish the Raycast extension to npm.\\n\\nIf you did intend to publish it to npm, remove the \\`prepublishOnly\\` script and rerun \\`npm publish\\` again.\\nIf you wanted to publish it to the Raycast Store instead, use \\`npm run publish\\` instead.\\n\\n\" && exit 1",
+    "publish": "npx @raycast/api@latest publish"
+  }
+}
