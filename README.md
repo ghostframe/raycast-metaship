@@ -23,3 +23,5 @@ When you start a Metabase through this command, you need to wait until it pulls 
 MB login will always be `test@gmail.com`, password `123123123`.
 
 - Databases: allows you to quickly start a database. If you press enter on a running DB, it starts/opens CloudBeaver on your browser with the connection already pre-filled so you can start running SQL against it.
+
+Cloudbeaver login is on the top right (gear icon), credentials are `cbadmin`, `Cbadmin1`
