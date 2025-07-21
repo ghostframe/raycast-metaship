@@ -1,4 +1,4 @@
-import { ActionPanel, Action, List, Icon, showToast, open, Toast, getPreferenceValues, Clipboard } from "@raycast/api";
+import { ActionPanel, Action, List, Icon, showToast, open, Toast, Clipboard } from "@raycast/api";
 import { useEffect, useState } from "react";
 import { getRunningMetashipDbs, getRunningMetashipMetabases, parseContainerName } from "./util";
 import { kill, runMetabaseContainer } from "./run";
@@ -11,13 +11,22 @@ const cache = new Cache();
 async function getTags() {
   const cached = cache.get("tags");
   const lastUpdated = cache.get("tags-last-updated");
-  console.log("lastUpdated", lastUpdated);
   let tags: string[] = [];
   if (cached && lastUpdated && new Date(lastUpdated).getTime() > Date.now() - 1000 * 60 * 60 * 24) {
     tags = JSON.parse(cached);
   } else {
     console.log("Fetching tags");
-    tags = await getTagList(getPreferenceValues().githubToken);
+    showToast({
+      title: "Fetching tags",
+      message: "This may take a while",
+      style: Toast.Style.Animated,
+    });
+    tags = await getTagList();
+    showToast({
+      title: "Tags fetched",
+      message: "Tags fetched",
+      style: Toast.Style.Success,
+    });
     cache.set("tags", JSON.stringify(tags));
     cache.set("tags-last-updated", new Date().toISOString());
   }

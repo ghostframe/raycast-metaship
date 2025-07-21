@@ -11,16 +11,7 @@
       "name": "run-metabase",
       "title": "Metabases",
       "description": "Run or open a metabase",
-      "mode": "view",
-      "preferences": [
-        {
-          "title": "Github Token",
-          "name": "githubToken",
-          "type": "password",
-          "required": true,
-          "description": "Github token for fetching tags. Create one from https://github.com/settings/personal-access-tokens"
-        }
-      ]
+      "mode": "view"
     },
     {
       "name": "run-database",
